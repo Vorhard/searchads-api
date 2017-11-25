@@ -169,6 +169,8 @@ class Campaign(Synchronizable, AppleSerializable):
                  storefront=[],
                  adGroups=[],
                  modificationTime=None,
+                 startTime=None,
+                 endTime=None,
                  **kwargs):
         """
         Creates a Campaign object
@@ -188,6 +190,8 @@ class Campaign(Synchronizable, AppleSerializable):
         :param negativeKeywords:
         :param adGroups:
         :param modificationTime:
+        :param startTime:
+        :param endTime:
         :param kwargs:
         """
         self._id = str(id)
@@ -206,6 +210,8 @@ class Campaign(Synchronizable, AppleSerializable):
         self.loc_invoice_details = locInvoiceDetails
         self.budget_orders = budgetOrders
         self.status = status
+        self.start_time = startTime
+        self.end_time = endTime
 
         self._negative_keywords = []
         for keyword in negativeKeywords:
