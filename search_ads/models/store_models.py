@@ -203,6 +203,8 @@ class Campaign(Synchronizable, AppleSerializable):
         self._serving_state_reasons = servingStateReasons
         self._modification_time = modificationTime
         self._storefront = storefront
+        self._start_time = startTime
+        self._end_time = endTime
 
         self.name = name
         self.budget_amount = budgetAmount
@@ -210,8 +212,7 @@ class Campaign(Synchronizable, AppleSerializable):
         self.loc_invoice_details = locInvoiceDetails
         self.budget_orders = budgetOrders
         self.status = status
-        self.start_time = startTime
-        self.end_time = endTime
+
 
         self._negative_keywords = []
         for keyword in negativeKeywords:
