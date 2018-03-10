@@ -166,7 +166,7 @@ def _report(campaign=None,
         for granularity in row['granularity']:
             final_row = copy.copy(base)
             final_row.update(granularity)
-            output.append(convert_to_float_all_amounts_in_row(final_row))
+            output.append(convert_keyword_id_to_string(convert_to_float_all_amounts_in_row(final_row)))
     return pd.DataFrame(output)
 
 
@@ -179,4 +179,10 @@ def convert_to_float_all_amounts_in_row(row):
     for field_name, value in _row.items():
         if isinstance(value, dict) and 'currency' in value:
             _row[field_name] = amount_to_float(value)
+    return _row
+
+
+def convert_keyword_id_to_string(row):
+    _row = copy.copy(row)
+    _row['keywordId'] = str(row['keywordId'])
     return _row
