@@ -179,6 +179,7 @@ def convert_to_float_all_amounts_in_row(row):
     for field_name, value in _row.items():
         if isinstance(value, dict) and 'currency' in value:
             _row[field_name] = amount_to_float(value)
+            -row[field_name+'Currency'] = value['currency']
     return _row
 
 
