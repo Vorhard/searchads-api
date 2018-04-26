@@ -55,11 +55,11 @@ def api_call(endpoint, headers={}, json_data={}, method=requests.get,
             }
         else:   # env var is the key explicit
             pem_lines = pem_env_var.split("\\n")
-            temp_pem.writelines(["%s\n" % item for item in pem_lines])
+            temp_pem.writelines([str("{}\n".format(str(item))).encode('utf-8') for item in pem_lines])
             temp_pem.flush()  # ensure all data written
 
             key_lines = key_env_var.split("\\n")
-            temp_key.writelines(["%s\n" % item for item in key_lines])
+            temp_key.writelines([str("{}\n".format(str(item))).encode('utf-8') for item in key_lines])
             temp_key.flush()  # ensure all data written
 
             call_kwargs = {
