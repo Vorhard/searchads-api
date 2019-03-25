@@ -1,5 +1,5 @@
 # DEPRECATION WARNING
-This repository is currently not maintained and will be dismissed in the near future.
+This repository is currently not maintained and will be dismissed in the near future. PRs are very unlikely to be merged.
 
 # Apple Search Ads Python API
 ## Install instructions
