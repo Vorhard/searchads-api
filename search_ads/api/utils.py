@@ -31,12 +31,14 @@ def set_env(**environ):
         os.environ.update(old_environ)
 
 
-def api_call(endpoint, headers={}, json_data={}, method=requests.get,
-             api_version='v1', limit=1000, offset=0, org_id=None,
+def api_call(endpoint, headers=None, json_data=None, method=requests.get,
+             api_version='v2', org_id=None,
              verbose=False):
+    if json_data is None:
+        json_data = {}
+    if headers is None:
+        headers = {}
     endpoint = "{}/{}".format(api_version, endpoint)
-    # print("Endpoint:", endpoint)
-    # print("Data:", json_data)
 
     temp_pem = NamedTemporaryFile(suffix='.pem')
     temp_key = NamedTemporaryFile(suffix='.key')
@@ -89,20 +91,18 @@ def api_call(endpoint, headers={}, json_data={}, method=requests.get,
     return req.json()
 
 
-def api_get(endpoint, api_version='v1', limit=1000, offset=0, org_id=None,
+def api_get(endpoint, api_version='v2', limit=1000, offset=0, org_id=None,
             verbose=False):
     return api_call(
         endpoint="{endpoint}?limit={limit}&offset={offset}".format(
             endpoint=endpoint, limit=limit, offset=offset),
         api_version=api_version,
-        limit=limit,
-        offset=offset,
         org_id=org_id,
         verbose=verbose
     )
 
 
-def api_put(endpoint, data, api_version='v1', org_id=None, verbose=False):
+def api_put(endpoint, data, api_version='v2', org_id=None, verbose=False):
     return api_call(
         endpoint,
         json_data=data,
@@ -113,7 +113,7 @@ def api_put(endpoint, data, api_version='v1', org_id=None, verbose=False):
     )
 
 
-def api_post(endpoint, data, api_version='v1', org_id=None, verbose=False):
+def api_post(endpoint, data, api_version='v2', org_id=None, verbose=False):
     return api_call(
         endpoint,
         json_data=data,

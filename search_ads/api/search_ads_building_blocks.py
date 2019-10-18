@@ -26,11 +26,11 @@ class DataBase(object):
 
 
 class SearchAds(object):
-    def __init__(self, org_name, api_version='v1'):
+    def __init__(self, org_name, api_version='v2'):
         """
         Initialize the API object
         :param org_name: Your organization name as found in the SearchAds interface
-        :param api_version: The API version (current is v1)
+        :param api_version: The API version (current is v2)
         """
         self.api_version = api_version
         orgs = api_get("acls", api_version=self.api_version)

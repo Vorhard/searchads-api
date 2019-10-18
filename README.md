@@ -1,3 +1,6 @@
+# DISCLAIMER
+ I was using this repo and it finally stopped working after v1 deprecation, I'm too lazy to build everything from scratch myself so I'll just try to keep it working with no promises.
+
 # DEPRECATION WARNING
 This repository is currently not maintained and will be dismissed in the near future. PRs are very unlikely to be merged.
 
@@ -24,7 +27,7 @@ Alternatively you can set environment variables or use the `set_env` function as
 * Create a Campaign
 * Create an Ad Group
 
-(*) Note that editing keywords / removing keywords / removing campaigns operations are not allowed by the search ads v1 api. Where implemented they are implicitly translated as pausing the old keyword and creating a new one.
+(*) Note that editing keywords / removing keywords / removing campaigns operations are not allowed by the search ads v2 api. Where implemented they are implicitly translated as pausing the old keyword and creating a new one.
 
 ## Objects & methods quick ref:
 * **SearchAds**
