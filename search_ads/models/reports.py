@@ -184,6 +184,9 @@ def convert_to_float_all_amounts_in_row(row):
 
 
 def convert_keyword_id_to_string(row):
-    _row = copy.copy(row)
-    _row['keywordId'] = str(row['keywordId'])
-    return _row
+    if 'keywordId' in row and row['keywordId']:
+        _row = copy.copy(row)
+        _row['keywordId'] = str(row['keywordId'])
+        return _row
+    else:
+        return row
